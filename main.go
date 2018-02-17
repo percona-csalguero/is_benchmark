@@ -62,7 +62,7 @@ func getISStats(db *sql.DB) {
 	for _, database := range dbList {
 		tableSchemaRows, err := db.Query(fmt.Sprintf(tableSchemaQuery, database))
 		if err != nil {
-			continue
+			panic(err)
 		}
 		defer tableSchemaRows.Close()
 
